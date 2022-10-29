@@ -10,4 +10,13 @@ object HelloWorldImpl extends HelloWorldService[IO] {
     case None => Greeting(s"Hello $name!")
     case Some(t) => Greeting(s"Hello $name from $t!")
   }
+
+  override def choice(pill: Pill): IO[Consequence] = IO.pure(
+    pill match {
+      case Pill.Wisdom =>
+        Consequence("The story ends, you wake up in your bed and believe whatever you want to believe")
+      case Pill.Ignorance =>
+        Consequence("You stay in wonderland, and I show you how deep the rabbit hole goes.")
+    }
+  )
 }
