@@ -18,6 +18,20 @@ operation Hello {
     output: Greeting
 }
 
+apply Hello @examples([
+    {
+        title: "My name is Jeff"
+        input: {
+            name: "Jeff",
+            town: "Town of Jefferson"
+        }
+        output: {
+            message: "Hello Jeff from Town of Jefferson!"
+        }
+    }
+])
+
+@input
 structure Person {
     @httpLabel
     @required
@@ -27,6 +41,7 @@ structure Person {
     town: String
 }
 
+@output
 structure Greeting {
     @required
     message: String
@@ -40,17 +55,19 @@ structure YouShallNotPass {
 }
 
 // Choice
-
+@documentation("This is your last chance. After this there is no turning back")
 enum Pill {
     Wisdom = "red"
     Ignorance = "blue"
 }
 
+@output
 structure Consequence {
     @required
     message: String
 }
 
+@readonly
 @http(method: "GET", uri: "/choose/{pill}", code: 200)
 operation Choice {
     input:= {
