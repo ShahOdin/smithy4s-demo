@@ -31,6 +31,8 @@ apply Hello @examples([
     }
 ])
 
+string Town
+
 @input
 structure Person {
     @httpLabel
@@ -38,7 +40,7 @@ structure Person {
     name: String,
 
     @httpQuery("town")
-    town: String
+    town: Town
 }
 
 @output

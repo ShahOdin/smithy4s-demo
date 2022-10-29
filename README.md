@@ -2,10 +2,10 @@
 
 Minimal example of using [smithy4s](https://github.com/disneystreaming/smithy4s) for generating some of the models, following this [guide](https://disneystreaming.github.io/smithy4s/docs/overview/quickstart). It showcases usage of:
 
-- API models
+- API models consisting of Enums, New types 
 - API errors
+- API docs
 - Endpoints
-- Enums
 - query and path parameters
 
 # Modules
