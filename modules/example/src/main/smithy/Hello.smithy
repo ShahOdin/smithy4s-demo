@@ -44,5 +44,6 @@ structure Greeting {
 @httpError(400)
 structure YouShallNotPass {
     @required
+    @jsonName("error")
     message: String
 }
