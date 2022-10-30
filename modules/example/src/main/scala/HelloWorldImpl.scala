@@ -20,4 +20,29 @@ object HelloWorldImpl extends HelloWorldService[IO] {
         Consequence("You stay in wonderland, and I show you how deep the rabbit hole goes.")
     }
   )
+
+  //ugly modelling in scala2. why do we need ActiveCustomerCase/InactiveCustomerCase as well as ActiveCustomer/InactiveCustomer?
+  override def lookupCustomer(customerId: CustomerId): IO[LookupCustomerOutput] = IO.pure(
+    customerId
+      .value
+      .version match {
+      case i if i % 2 == 0 =>
+        LookupCustomerOutput(
+          Customer.ActiveCustomerCase(
+            ActiveCustomer(
+              customerId = customerId,
+              credit = 20
+            )
+          )
+        )
+
+      case _ =>
+        LookupCustomerOutput(
+          Customer.InactiveCustomerCase(
+            InactiveCustomer(customerId = customerId)
+          )
+        )
+
+    }
+  )
 }
