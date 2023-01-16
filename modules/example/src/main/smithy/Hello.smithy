@@ -10,13 +10,8 @@ operation Hello {
     errors: [YouShallNotPass]
 }
 
-
-
-//@error("client")
-//@httpError(400)
 @error("client")
-@httpError(201)
-@suppress(["HttpResponseCodeSemantics"])
+@httpError(400)
 structure YouShallNotPass {
     @required
     message: String
