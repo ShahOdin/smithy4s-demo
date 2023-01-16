@@ -4,6 +4,8 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "2.13.10"
 
+Compile / smithy4sSmithyLibrary := false
+
 val example = project
   .in(file("modules/example"))
   .enablePlugins(Smithy4sCodegenPlugin)
