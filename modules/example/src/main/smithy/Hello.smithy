@@ -6,7 +6,7 @@ namespace smithy4s.hello
 @http(method: "GET", uri: "/hello/{name}", code: 200)
 operation Hello {
     input: Person,
-//    output: Greeting,
+    output: Greeting,
     errors: [YouShallNotPass]
 }
 
