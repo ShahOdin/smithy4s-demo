@@ -6,7 +6,7 @@ namespace smithy4s.hello
 @http(method: "GET", uri: "/hello/{name}", code: 200)
 operation Hello {
     input: Person,
-    output: Greeting,
+//    output: Greeting,
     errors: [YouShallNotPass]
 }
 
@@ -30,12 +30,12 @@ apply Hello @examples([
     {
         title: "Unhappy path"
         input: {
-            name: "Foo"
+            name: "Balrog"
         }
         error: {
             shapeId: YouShallNotPass
             content: {
-                "message": "Nope!"
+                "message": "Go back to the Shadow"
             }
         }
     }
