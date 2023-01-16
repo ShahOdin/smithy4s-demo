@@ -24,7 +24,7 @@ apply Hello @examples([
             name: "Jeff"
         }
         output: {
-            message: "Hello Jeff from Town of Jefferson!"
+            message: "Hello Jeff"
         }
     },
     {
